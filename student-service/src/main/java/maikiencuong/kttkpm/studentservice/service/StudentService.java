@@ -1,5 +1,6 @@
 package maikiencuong.kttkpm.studentservice.service;
 
+import io.github.resilience4j.retry.annotation.Retry;
 import lombok.extern.slf4j.Slf4j;
 import maikiencuong.kttkpm.studentservice.dto.Faculty;
 import maikiencuong.kttkpm.studentservice.dto.StudentDetail;
@@ -29,6 +30,7 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
+    @Retry(name = "basic", fallbackMethod = "waiting")
     public StudentDetail findByIdIncludeFaculty(Long id) {
         Optional<Student> studentOptional = studentRepository.findById(id);
         if (studentOptional.isPresent()) {
@@ -42,6 +44,13 @@ public class StudentService {
             return studentDetail;
         }
         return null;
+    }
+
+    public StudentDetail waiting(Throwable throwable) {
+        return StudentDetail.builder()
+                .student(Student.builder().lastName("waiting").build())
+                .faculty(null)
+                .build();
     }
 
 }
