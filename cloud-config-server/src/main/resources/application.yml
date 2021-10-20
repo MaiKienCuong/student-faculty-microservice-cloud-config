@@ -1,0 +1,27 @@
+
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+
+# read config from git
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri:
+#          default-label: main
+#          bootstrap: false
+#          clone-on-start: true
+
+
+# read config from local
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: E:/NAM4/KIENTRUC_THIETKEPM/student_faculty/cloud-config
