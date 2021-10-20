@@ -1,18 +1,10 @@
 
-resilience4j:
-  retry:
-    instances:
-      basic:
-        maxRetryAttemps: 5
-        waitDuration: 3s
-
-
 server:
-  port: 9002
+  port: 9001
 
 spring:
   application:
-    name: student-service
+    name: faculty-service
 #
 #  config:
 #    import: "optional:configserver:"
