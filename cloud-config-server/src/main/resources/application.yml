@@ -7,21 +7,25 @@ spring:
     name: config-server
 
 # read config from git
-#  cloud:
-#    config:
-#      server:
-#        git:
-#          uri:
-#          default-label: main
-#          bootstrap: false
-#          clone-on-start: true
-
-
-# read config from local
-  profiles:
-    active: native
   cloud:
     config:
       server:
-        native:
-          searchLocations: E:/NAM4/KIENTRUC_THIETKEPM/student_faculty/cloud-config
+        bootstrap: false
+        git:
+#          clone-on-start: true
+          uri: https://github.com/MaiKienCuong/student-faculty-microservice-cloud-config
+#          branch: cloud-config-server
+          default-label: cloud-config-server
+#          thu muc con trong repository (neu co)
+          search-paths: cloud-config
+#          clone-submodules: false
+
+
+# read config from local (doc file config tu thu muc trong may)
+#  profiles:
+#    active: native
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          searchLocations: E:/NAM4/KIENTRUC_THIETKEPM/student_faculty/cloud-config
