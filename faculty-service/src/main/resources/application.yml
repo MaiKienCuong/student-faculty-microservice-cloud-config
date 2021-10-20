@@ -1,24 +1,24 @@
-
-server:
-  port: 9001
-
-spring:
-  application:
-    name: faculty-service
 #
-#  config:
-#    import: "optional:configserver:"
-#  cloud:
-#    config:
-#      uri: http://localhost:8888
-
-#welcome: "N T Khoi Local"
-
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    hostname: localhost
+#server:
+#  port: 9001
+#
+#spring:
+#  application:
+#    name: faculty-service
+##
+##  config:
+##    import: "optional:configserver:"
+##  cloud:
+##    config:
+##      uri: http://localhost:8888
+#
+##welcome: "N T Khoi Local"
+#
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#  instance:
+#    hostname: localhost

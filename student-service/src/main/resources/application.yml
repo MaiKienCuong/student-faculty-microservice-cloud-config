@@ -1,32 +1,32 @@
-
-resilience4j:
-  retry:
-    instances:
-      basic:
-        maxRetryAttemps: 5
-        waitDuration: 3s
-
-
-server:
-  port: 9002
-
-spring:
-  application:
-    name: student-service
 #
-#  config:
-#    import: "optional:configserver:"
-#  cloud:
-#    config:
-#      uri: http://localhost:8888
-
-#welcome: "N T Khoi Local"
-
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    hostname: localhost
+#resilience4j:
+#  retry:
+#    instances:
+#      basic:
+#        maxRetryAttemps: 5
+#        waitDuration: 3s
+#
+#
+#server:
+#  port: 9002
+#
+#spring:
+#  application:
+#    name: student-service
+##
+##  config:
+##    import: "optional:configserver:"
+##  cloud:
+##    config:
+##      uri: http://localhost:8888
+#
+##welcome: "N T Khoi Local"
+#
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#  instance:
+#    hostname: localhost

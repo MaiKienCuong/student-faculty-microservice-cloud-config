@@ -1,5 +1,6 @@
 package maikiencuong.kttkpm.studentservice.service;
 
+import lombok.extern.slf4j.Slf4j;
 import maikiencuong.kttkpm.studentservice.dto.Faculty;
 import maikiencuong.kttkpm.studentservice.dto.StudentDetail;
 import maikiencuong.kttkpm.studentservice.entity.Student;
@@ -12,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class StudentService {
 
     @Autowired
@@ -30,7 +32,9 @@ public class StudentService {
     public StudentDetail findByIdIncludeFaculty(Long id) {
         Optional<Student> studentOptional = studentRepository.findById(id);
         if (studentOptional.isPresent()) {
-            Faculty faculty = restTemplate.getForObject(facultyUrl + "/" + id, Faculty.class);
+            log.info("restemplate {}", restTemplate);
+            log.info("facultyUrl {}", facultyUrl);
+            var faculty = restTemplate.getForObject(facultyUrl + "/" + id, Faculty.class);
             StudentDetail studentDetail = StudentDetail.builder()
                     .student(studentOptional.get())
                     .faculty(faculty)

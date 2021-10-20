@@ -21,12 +21,12 @@ public class StudentRestController {
     @Value("${student.rest.controller.message}")
     private String message;
 
-    @GetMapping("/")
+    @GetMapping
     public String home() {
         return message;
     }
 
-    @PostMapping("/")
+    @PostMapping
     public Student save(@RequestBody Student student) {
         return studentService.save(student);
     }
